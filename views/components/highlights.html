@@ -1,0 +1,26 @@
+<div class="jumbotron switch" title='comes from research.html throw projects.html'>
+  <div ng-animate-swap="$ctrl.slide" class="fade-animation">
+    <table>
+      <tr>
+        <td style="width: 170px;">
+          <img ng-src="{{$ctrl.slide.image}}" style="width: 150px; height: 150px;"/>
+        </td>
+        <td style="width: 530px;">
+          <blockquote style="text-align: left;">
+            <h2 class="text-switch">{{$ctrl.slide.title}}</h2>
+            <p style="font-size: 13px">
+              <i class="fa fa-quote-left" aria-hidden="true"></i>
+                {{$ctrl.slide.message}}
+              <i class="fa fa-quote-right" aria-hidden="true"></i>
+            </p>
+            <small>
+              <cite title="{{$ctrl.slide.cite}}"  id="animate-link">
+                <a class="animate-link" href=""  target="_blank">{{$ctrl.slide.cite}}</a>
+              </cite>
+            </small>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

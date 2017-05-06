@@ -1,0 +1,28 @@
+<div ng-controller="TeachingCtrl">
+  <div ng-switch on="selection">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#/teaching" ng-click="selectCourses()">Services</a></li>
+      <li><a href="#/teaching" ng-click="selectTutorials()">Tutorials</a></li>
+    </ul>
+
+
+    <!-- teaching highlights component -->
+    <div class="jumbotron">
+      <h1>Teaching</h1>
+    </div>
+
+    <div ng-switch-when="courses">
+      <!-- courses component -->
+      <courses></courses>
+    </div>
+
+    <div class="animate-switch" ng-switch-when="tutorials">
+      <!-- tutorials component -->
+      <tutorials></tutorials>
+    </div>
+
+    <div class="animate-switch" ng-switch-default>
+      <!-- default component -->
+    </div>
+  </div>
+</div>

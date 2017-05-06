@@ -1,0 +1,57 @@
+    <div class="pub-list-item" itemscope itemtype="http://schema.org/CreativeWork">
+    <h4>Students, Post-doctoral Fellows
+        <small>
+          <input ng-model="search" id="search" type="text" placeholder="Search"/></h4>
+        </small>
+    <ol>
+      <div id="searchTextResults" ng-repeat="student in $ctrl.filtered = $ctrl.Students | filter:search | startFrom:($ctrl.currentPage-1)*$ctrl.entryLimit | limitTo:$ctrl.entryLimit">
+        <li value="{{ $ctrl.totalItems - $index - ($ctrl.currentPage-1) * $ctrl.entryLimit }}">
+          <i class="fa fa-graduation-cap" aria-hidden="true" style="color:#03396c;font-size:120%;padding-top:6px; padding-right: 10px;"></i>
+          <span class="pub-authors" itemprop="author" id="animate-link">
+            <a href="{{$ctrl.Web[student.name]}}" target="_blank">{{student.name}}</a>
+          </span>
+          -
+          <span class="student-program" itemprop="name" >
+            {{student.program}},
+          </span>
+          <span class="student-period" itemprop="name">
+            {{student.begin}} - {{student.end}}.
+          </span>
+          <span class="pub-publication" style="font-style: italic;">
+            {{student.subject}}.
+          </span>
+        <span ng-show="{{student.cosupervisors.length !== 0}}" class"pub-cosupervisors" id="animate-link">
+          Co-supervised with
+          <span ng-repeat="name in student.cosupervisors">
+            <span class="pub-authors" itemprop="author" >
+              <a href="{{$ctrl.Web[name]}}" target="_blank">{{name}}</a>,
+            </span>
+          </span>
+        </span>
+        <span class="student-institution">
+          {{student.institution}}.
+        </span>
+        <span ng-repeat="(key, value) in student.links">
+          <a href="{{value}}"  target="_blank">
+            <span ng-show="{{key === 'pdf'}}">
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+            </span>
+            <span ng-show="{{key === 'details'}}">
+              <i class="icon icon-generic" data-icon="i"></i>
+            </span>
+            <span ng-show="{{key === 'project'}}">
+              <i class="icon icon-generic" data-icon="#"></i>
+            </span>
+            <span ng-show="{{key === 'url'}}">
+              <i class="icon icon-generic" data-icon="y"></i>
+            </span>
+            <span ng-show="{{key === 'code'}}">
+              <i class="fa fa-code" aria-hidden="true"></i>
+            </span>
+          </a>
+        </span>
+      </li>
+    </div>
+  </ol>
+  <pagination page="$ctrl.currentPage" max-size="$ctrl.noOfPages" total-items="$ctrl.totalItems" items-per-page="$ctrl.entryLimit"></pagination>
+</div>

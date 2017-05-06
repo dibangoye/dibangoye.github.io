@@ -1,0 +1,63 @@
+
+<div class="jumbotron" title='comes from main.html'>
+  <div class="author-guts guts">
+    <div class="row">
+      <div class="col-sm-3">
+        <a href="" class="profile-spot no-border">
+          <img class="portrait" src="images/portrait.jpg" alt="I'm DibangoyeJS"><br>
+        </a>
+      </div>
+      <div class="col-sm-9">
+        <h3 class="text-switch">Jilles S. Dibangoye</h3>
+        <div class="meta">
+          <p style="font-size: 16px"  id="animate-link">I'm  associate professor at <a class="animate-link" href="https://www.insa-lyon.fr" target="_blank">INSA Lyon</a>,
+            researcher in Artificial Intelligence at <a class="animate-link" href="https://www.citi-lab.fr/" target="_blank">CITI lab</a>,
+            where I focus on building machines mimicking and eventually exceeding human intelligence in
+            <a class="animate-link" href="https://www.inria.fr" target="_blank">INRIA</a> team <a class="animate-link" href="https://team.inria.fr/chroma/" target="_blank">Chroma</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "pie",
+  "theme": "light",
+  "titles": [ {
+    "text": "Interests",
+    "size": 16
+  } ],
+  "dataProvider": [ {
+    "country": "Artificial Intelligence",
+    "visits": 7252
+  }, {
+    "country": "Multi-Agent Systems",
+    "visits": 3882
+  }, {
+    "country": "Machine Learning",
+    "visits": 1809
+  }, {
+    "country": "Robotics",
+    "visits": 1322
+  }],
+  "valueField": "visits",
+  "titleField": "country",
+  "startEffect": "elastic",
+  "startDuration": 2,
+  "labelRadius": 15,
+  "innerRadius": "50%",
+  "depth3D": 10,
+  "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+  "angle": 15,
+  "export": {
+    "enabled": false
+  }
+} );
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>

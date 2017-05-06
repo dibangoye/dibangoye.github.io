@@ -1,0 +1,46 @@
+<div class="pub-list-item" itemscope itemtype="http://schema.org/CreativeWork">
+<h4>Teaching Services
+    <small>
+      <input ng-model="search" id="search" type="text" placeholder="Search"/></h4>
+    </small>
+<ol>
+  <div id="searchTextResults" ng-repeat="classe in $ctrl.filtered = $ctrl.Classes | filter:search | startFrom:($ctrl.currentPage-1)*$ctrl.entryLimit | limitTo:$ctrl.entryLimit">
+    <li value="{{ $ctrl.totalItems - $index - ($ctrl.currentPage-1) * $ctrl.entryLimit }}">
+      <i class="icon icon-generic" data-icon="t" style="color:#03396c;font-size:120%;padding-top:6px; padding-right: 10px;"></i>
+      <span>
+        {{classe.acronym}},
+      </span>
+      <span class="pub-publication" style="font-style: italic;">
+        {{classe.title}},
+      </span>
+      <span class="project-period" itemprop="name">
+        {{classe.date}}.
+      </span>
+      <span class="project-institution">
+        {{classe.institution}}.
+      </span>
+      <span class="project-institution">
+         {{classe.department}}.
+      </span>
+      <span ng-show="{{classe.cm !== '0'}}">
+        Cours Magistraux ({{classe.cm}} hrs),
+      </span>
+      <span ng-show="{{classe.td !== '0'}}">
+        Travaux Dirigés ({{classe.td}} hrs),
+      </span>
+      <span ng-show="{{classe.tp !== '0'}}">
+        Travaux Pratiques ({{classe.tp}} hrs),
+      </span>
+      <span ng-show="{{classe.project !== '0'}}">
+        Projet ({{classe.project}} hrs),
+      </span>
+      <span class="project-links">
+        <a href="{{classe.url}}"  target="_blank">
+          <i class="icon icon-generic" data-icon="y"></i>
+        </a>
+      </span>
+  </li>
+</div>
+</ol>
+<pagination page="$ctrl.currentPage" max-size="$ctrl.noOfPages" total-items="$ctrl.totalItems" items-per-page="$ctrl.entryLimit"></pagination>
+</div>
